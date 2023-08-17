@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Register;
 use App\Models\User;
 use App\Models\Universities;
 use App\Models\Departments;
@@ -13,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisteredUserController extends Controller
 {
@@ -46,7 +49,9 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => ['required', 'string', 'max:12'],
+            'mobile' => ['required', 'string', 'max:12','unique:users'],
+            'university' => ['required', 'string'],
+            'department' => ['required', 'string'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -69,8 +74,12 @@ class RegisteredUserController extends Controller
      
         event(new Registered($user));
 
+        // email register user
+        Mail::to($request->email)->send(new Register($user));
+        // email register user
+
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::HOME)->with('success', 'Your Account has been Create Successfully!');
     }
 }

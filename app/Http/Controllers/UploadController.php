@@ -170,13 +170,13 @@ class UploadController extends Controller
        // $document->WriteHTML('<p>Write something, just for fun!</p>');
          
         // Save PDF on your public storage 
-        Storage::disk('pdf')->put($documentFileName, $document->Output($documentFileName, "S"));
+        // Storage::disk('pdf')->put($documentFileName, $document->Output($documentFileName, "S"));
          
-        // Get file back from storage with the give header informations
-        return Storage::disk('pdf')->download($documentFileName, 'Request', $header); //
+        // // Get file back from storage with the give header informations
+        // return Storage::disk('pdf')->download($documentFileName, 'Request', $header); //
    
    
-   
+       return $document->Output($documentFileName, 'I');
    
    
     }

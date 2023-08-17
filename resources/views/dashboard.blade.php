@@ -2,6 +2,9 @@
 
 <div class="container">
     <div class="row">
+    @if(session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
     @if (Auth::user()->role_id  == 1)
     <div class="d-flex justify-content-center align-items-center mb-1" style="min-height: 30vh;">
       <h1 class="mb-1 text-center pageh1">Welcome :: {{ Auth::user()->name }} </h1>            

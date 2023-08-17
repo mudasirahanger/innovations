@@ -40,9 +40,9 @@
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" id="email" name="email" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-3">
                     <label for="mobile" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="mobile" name="mobile" required>
+                    <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" required>
                 </div> 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
