@@ -50,12 +50,35 @@ class UploadController extends Controller
         'email_innovator' => 'required|email|max:225',
         'phone_innovator' => ['required', 'string', 'max:255'],
         'about' => ['required', 'string'],
+        'innovation_type' => ['required', 'string'],
         'photo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
         'photo_innovation' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+        'photo_innovation1' => 'image|mimes:png,jpg,jpeg|max:2048',
+        'photo_innovation2' => 'image|mimes:png,jpg,jpeg|max:2048',
+        'photo_innovation3' => 'image|mimes:png,jpg,jpeg|max:2048',
     ]);
     
     $name = $request->file('photo')->getClientOriginalName();   
-    $photo_innovation_name = $request->file('photo_innovation')->getClientOriginalName();   
+    $photo_innovation_name = $request->file('photo_innovation')->getClientOriginalName();
+    
+    if(!empty($request->file('photo_innovation1'))){
+        $photo_innovation_name1 = $request->file('photo_innovation1')->getClientOriginalName();
+        $photo_innovation_path1 =  $request->photo_innovation->storeAs('images/photo_innovation', $photo_innovation_name1);
+    } else {
+        $photo_innovation_path1 = '';
+    }
+    if(!empty($request->file('photo_innovation2'))){
+        $photo_innovation_name2 = $request->file('photo_innovation2')->getClientOriginalName();
+        $photo_innovation_path2 =  $request->photo_innovation->storeAs('images/photo_innovation', $photo_innovation_name2);
+    } else {
+        $photo_innovation_path2 = '';
+    }
+    if(!empty($request->file('photo_innovation3'))){
+        $photo_innovation_name3 = $request->file('photo_innovation3')->getClientOriginalName();
+        $photo_innovation_path3 =  $request->photo_innovation->storeAs('images/photo_innovation', $photo_innovation_name3);
+    } else {
+        $photo_innovation_path3 = '';
+    }
    
     // Store in Storage Folder
     $path =  $request->photo->storeAs('images/photo', $name);  
@@ -80,9 +103,14 @@ class UploadController extends Controller
         'uni_id' => $request->uni_id,      
         'dept_id' => $request->dept_id,
         'patentno' => $patentno,
+        'innovation_type' => $request->innovation_type,
         'status' => 'pending',
         'photo' => $path,
-        'photo_innovation' => $photo_innovation_path
+        'photo_innovation' => $photo_innovation_path,
+        'photo_innovation1' => $photo_innovation_path1,
+        'photo_innovation2' => $photo_innovation_path2,
+        'photo_innovation3' => $photo_innovation_path3
+
     ]);
 
     return redirect('add')->with('success', 'Innovation Added Successfully');
@@ -117,6 +145,30 @@ class UploadController extends Controller
                            
        return view('view')->with(array('title'=>'View Innovations Detials','datas'=>$uploads , 'uni_name' => $uni_name , 'dept_name' => $dept_name));
    }
+
+   public function publicView($innovation_id)
+   {
+        if(!empty($innovation_id)) {
+       
+        $where = [                   
+                     ['innovation_id','=',$innovation_id]
+                    ];
+
+        $uploads = Upload::select('*')
+                           ->where($where)
+                           ->get()->toArray();
+
+       $uni_name =   Universities::getUnivName($uploads[0]['uni_id']);
+       $dept_name =  Departments::getDeptName($uploads[0]['dept_id']);
+                           
+       return view('view')->with(array('title'=>'View Innovations Detials','datas'=>$uploads , 'uni_name' => $uni_name , 'dept_name' => $dept_name));
+      
+        } else {
+       return abort(404);
+
+        }
+    
+    }
 
    public function print($innovation_id)
    {
@@ -202,24 +254,9 @@ class UploadController extends Controller
 
     if($request->method() == 'POST') {
         $request->validate([
-            'university' =>  ['required', 'string'],
-            'department' => ['required','string'],
             'heading_innovator' => ['required', 'string']
         ]);
         
-       
-        if(isset($request->university) && !empty($request->university)){
-            $university = $request->university;
-        } else {
-            $university = '';
-        }
-
-        if(isset($request->department) && !empty($request->department)){
-            $department = $request->department;
-        } else {
-            $department = '';
-        }
-
         if(isset($request->heading_innovator) && !empty($request->heading_innovator)){
             $heading_innovator = $request->heading_innovator;
             $heading_innovator = htmlspecialchars($heading_innovator, ENT_QUOTES, 'UTF-8'); 
@@ -227,9 +264,8 @@ class UploadController extends Controller
             $heading_innovator = '';
         }       
          
-         if(!empty($university) && !empty($department)) {
-          $results = Upload::where('uni_id', $university)
-                                 ->where('dept_id', $department)
+         if(!empty($heading_innovator)) {
+          $results = Upload::where('status', "Approved")
                                  ->orWhere('heading_innovator', 'like', "%$heading_innovator%")
                                  ->get();
          } else {

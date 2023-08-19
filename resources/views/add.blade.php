@@ -68,6 +68,14 @@
                     <label for="patentno" class="form-label d-none" id="patentnolabel">Patent no</label>
                     <input type="text" class="form-control d-none" id="patentno" name="patentno" >
                 </div> 
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Innovation Type</label>
+                     <select class="form-control" name="innovation_type">
+                       <option value="">Select</option>
+                       <option value="1">Innovation</option>
+                       <option value="2">Startup</option>
+                     </select>
+                </div>
 
                 <div class="mb-3">
                     <label for="photo" class="form-label">Photo of Innovator</label>
@@ -76,6 +84,18 @@
                 <div class="mb-3">
                     <label for="photo" class="form-label">Photo of Innovation</label>
                     <input type="file" class="form-control" id="photo_innovation" name="photo_innovation">
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation 1</label>
+                    <input type="file" class="form-control" id="photo_innovation1" name="photo_innovation1">
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation 2</label>
+                    <input type="file" class="form-control" id="photo_innovation2" name="photo_innovation2">
+                </div>
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation 3</label>
+                    <input type="file" class="form-control" id="photo_innovation3" name="photo_innovation3">
                 </div>
                            
                 <div class="d-grid">

@@ -21,19 +21,19 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('add') }}">Add Innovations</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/dashboard') }}">Settings</a>
-                            </li>
+                            </li> -->
                         @endif
                     @else
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">About Us</a>
+                                <a class="nav-link" href="{{ url('/about_us') }}">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}">Contact Us</a>
+                                <a class="nav-link" href="{{ url('/contact_us') }}">Contact Us</a>
                             </li>
                     @endif
                     

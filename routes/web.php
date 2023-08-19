@@ -24,4 +24,15 @@ Route::get('/dashboard', function () {
 
 Route::match(array('GET','POST'),'search',[UploadController::class, 'search'])->name('search');
 
+Route::get('views/{id}',[UploadController::class, 'publicView'])->name('views');
+
+Route::get('/about_us',function(){
+    return view('about_us');
+})->name('about_us');
+
+Route::get('/contact_us',function(){
+    return view('contact_us');
+})->name('contact_us');
+
+
 require __DIR__.'/auth.php';

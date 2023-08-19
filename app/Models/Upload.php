@@ -11,7 +11,7 @@ class Upload extends Model
 
     protected $table = 'upload'; // If table name is different, specify it here.
     protected $primaryKey = 'upload_id'; // If primary key is different, specify it here.
-    protected $fillable = ['innovation_id','user_id', 'heading_innovator','name_innovator','email_innovator','phone_innovator', 'about','uni_id','dept_id','patentno','photo','photo_innovation','status'];
+    protected $fillable = ['innovation_id','user_id', 'heading_innovator','name_innovator','email_innovator','phone_innovator', 'about','uni_id','dept_id','patentno','innovation_type','photo','photo_innovation','photo_innovation1','photo_innovation2','photo_innovation3','status'];
     public $timestamps = true;
 
 

@@ -1,3 +1,9 @@
+@php
+  $innovations = App\Models\Upload::count();
+  $startups = App\Models\Upload::where('innovation_type','2')->count();
+  $patents = App\Models\Upload::where('patentno' ,'>', '0')->count();
+  @endphp
+ 
  <!-- counts -->
  <section class="mt-3">
       <div class="row ">
@@ -9,7 +15,7 @@
                   <i style="font-size: 105px;" class="fa-solid fa-lightbulb"></i>
                 </div>
                 <div class="col">
-                  <p class="ml-1 fs-1 count"> 162 </p>
+                  <p class="ml-1 fs-1 count"> {{ $innovations }} </p>
                 </div>
               </div>
               <div class="row mt-5">
@@ -28,7 +34,7 @@
                   <i style="font-size: 105px;" class="fa-solid fa-pen-nib"></i>
                 </div>
                 <div class="col">
-                  <p class="ml-1 fs-1 count"> 162 </p>
+                  <p class="ml-1 fs-1 count"> {{ $patents }} </p>
                 </div>
               </div>
               <div class="row mt-5">
@@ -47,7 +53,7 @@
                   <i style="font-size: 105px;" class="fa-solid fa-ranking-star"></i>
                 </div>
                 <div class="col">
-                  <p class="ml-1 fs-1 count"> 162 </p>
+                  <p class="ml-1 fs-1 count"> {{ $startups }} </p>
                 </div>
               </div>
               <div class="row mt-5">

@@ -3,6 +3,8 @@
   $innovations = App\Models\Upload::count();
   $departments = App\Models\Departments::count();
   $universities = App\Models\Universities::count();
+  $startups = App\Models\Upload::where('innovation_type','2')->count();
+  $patents = App\Models\Upload::where('patentno' ,'>', '0')->count();
   @endphp
 
 <div class="row mb-5">
@@ -39,4 +41,25 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-lg-3 col-md-3 col-sm-6">
+        <div class="tile tile-primary">
+            <div class="tile-heading">Total Startups </div>
+            <div class="tile-body"><i class="fa-solid fa-ranking-star"></i>
+                <h2 class="float-md-end">{{ $startups }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6">
+        <div class="tile tile-primary">
+            <div class="tile-heading">Total Patents </div>
+            <div class="tile-body"><i class="fa-solid fa-pen-nib"></i>
+                <h2 class="float-md-end">{{ $patents }}</h2>
+            </div>
+        </div>
+    </div>
+
 </div>

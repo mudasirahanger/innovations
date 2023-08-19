@@ -25,8 +25,12 @@
         <td><b>Department :  </b>{{ $dept_name }}</td>
       </tr>
       <tr>
-      <td><b>Patent No :  </b>{{ $data['patentno'] }}  <b>ID  :  </b>#{{ $data['innovation_id'] }}</td>
+      <td><b>Patent No :  </b>{{ $data['patentno'] }}  </td>
       <td><b>Status  :  </b>{{ $data['status'] }}</td>
+      </tr>
+      <tr>
+       <td><b>ID  :  </b>#{{ $data['innovation_id'] }}</td>
+       <td><b>Type  :  </b>@if($data['innovation_type'] == '1') Innovation @else Startup @endif</td>
       </tr>
     </table>
 
@@ -37,6 +41,14 @@
         </tr>
         <tr>
         <td> <img src="{{ asset('storage/app/'. $data['photo_innovation']) }}" class="" width="500px"> </td>
+      </tr>
+      <tr>
+      <td> <img src="{{ asset('storage/app/'. $data['photo_innovation1']) }}" class="" width="500px"> </td>
+      <td> <img src="{{ asset('storage/app/'. $data['photo_innovation2']) }}" class="" width="500px"> </td>
+      </tr>
+      <tr>
+      <td> <img src="{{ asset('storage/app/'. $data['photo_innovation3']) }}" class="" width="500px"> </td>
+      <td></td>
       </tr>
     </table>
 

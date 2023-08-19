@@ -22,7 +22,9 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Name Of Innovator</label>
                     <input type="text" class="form-control" id="name" name="name_innovator"   value="{{ $data['name_innovator'] }}"  disabled>
+                    @if(!empty(Auth::user()->id))
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    @endif
                     <input type="hidden" name="upload_id" value="{{ $data['upload_id'] }}">
                     <input type="hidden" name="innovation_id" value="{{ $data['innovation_id'] }}">
                     <input type="hidden" name="status" value="Approved">
@@ -53,6 +55,11 @@
                     <input type="text" class="form-control " id="patentno" name="patentno" value="{{ $data['patentno'] }}"  disabled >
                 </div> 
 
+                <div class="mb-3">                  
+                    <label for="patentno" class="form-label " id="patentnolabel">Innovation Type</label>
+                    <input type="text" class="form-control " id="innovation_type" name="innovation_type" value="@if($data['innovation_type'] == '1') Innovation @else Startup @endif"  disabled >
+                </div>
+
                 <div class="mb-3">
                     <label for="photo" class="form-label">Photo of Innovator</label>
                     <a href="{{ asset('storage/app/'. $data['photo']) }}" data-lightbox="image-1" data-title="{{ $data['heading_innovator'] }}">   <img src="{{ asset('storage/app/'. $data['photo']) }}" class="" width="200px"> </a>
@@ -63,9 +70,29 @@
                   <a href="{{ asset('storage/app/'. $data['photo_innovation']) }}" data-lightbox="image-2" data-title="{{ $data['heading_innovator'] }}"> <img src="{{ asset('storage/app/'. $data['photo_innovation']) }}"  class="" width="200px"> </a>
                  
                 </div>
-
+                @if(!empty($data['photo_innovation1']))
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation1</label>
+                  <a href="{{ asset('storage/app/'. $data['photo_innovation1']) }}" data-lightbox="image-3" data-title="{{ $data['heading_innovator'] }}"> <img src="{{ asset('storage/app/'. $data['photo_innovation1']) }}"  class="" width="200px"> </a>
+                 
+                </div>
+                @endif
+                @if(!empty($data['photo_innovation1']))
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation2</label>
+                  <a href="{{ asset('storage/app/'. $data['photo_innovation2']) }}" data-lightbox="image-4" data-title="{{ $data['heading_innovator'] }}"> <img src="{{ asset('storage/app/'. $data['photo_innovation2']) }}"  class="" width="200px"> </a>
+                 
+                </div>
+                @endif
+                @if(!empty($data['photo_innovation1']))
+                <div class="mb-3">
+                    <label for="photo" class="form-label">Photo of Innovation3</label>
+                  <a href="{{ asset('storage/app/'. $data['photo_innovation3']) }}" data-lightbox="image-5" data-title="{{ $data['heading_innovator'] }}"> <img src="{{ asset('storage/app/'. $data['photo_innovation3']) }}"  class="" width="200px"> </a>
+                 
+                </div>
+                @endif
                 <div class="d-grid">
-                @if (Auth::user()->role_id  == 1 && $data['status'] !== 'Approved')
+                @if (!empty(Auth::user()->role_id) && Auth::user()->role_id  == 1 && $data['status'] !== 'Approved')
                     <button type="submit" class="btn btn-success">Approve Innovation</button>
                 @else
                     <a class="btn btn-warning">{{ $data['status'] }}</a>

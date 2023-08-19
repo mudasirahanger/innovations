@@ -14,28 +14,12 @@
                 <div class="alert alert-danger">{{ $error }}</div>
                 @endforeach
                 @endif
-       
                 <div class="mb-3">
-                    <label for="staticEmail2" class="">University</label>
-                    <select class="form-control" style="margin: 5px;" name="university">
-                        <option value="">Please Select</option>
-                        @foreach ($data['universities'] as $university)
-                        <option value="{{ $university['uni_id'] }}">{{ $university['name'] }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="inputPassword2" class="">Department</label>
-                    <select class="form-control" style="margin: 5px;" name="department">
-                        <option value="">Please Select</option>
-                        @foreach ($data['departments'] as $department)
-                        <option value="{{ $department['dept_id'] }}">{{ $department['name'] }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-3">
-                   <label for="inputPassword2" class="">Innovation Heading</label>
-                   <input type="text" class="form-control" name="heading_innovator">
+                   <label for="inputPassword2" class="">Innovation</label>
+                   <input type="text" class="form-control" name="heading_innovator" required>
+                   <div id="" class="form-text">
+                        Try to type the name or heading 
+                        </div>
                 </div>
                 <div class="mb-3">
                    <button class="btn btn-top"><i class="fa fa-search"></i> Search</button>
@@ -66,9 +50,9 @@
                          <td><h3>{{ $result->name_innovator }}</h3></td>
                          <td> <p>{{ $result->about }}</p> </td>
                          <td><i>{{ $result->patentno }}</i></td>
-                         <td><img src="{{ asset('storage/app/'. $result->photo) }}" class="" width="200px"> </td>
-                         <td><img src="{{ asset('storage/app/'. $result->photo_innovation) }}" class="" width="200px"> </td>
-                         <td><a href="{{ url('/print') }}/{{$result->innovation_id}}" target="_blank" class="btn btn-info"> <i class="fa-solid fa-print"></i> </a></td>
+                         <td><a href="{{ asset('storage/app/'. $result->photo) }}" data-lightbox="image-1"> <img src="{{ asset('storage/app/'. $result->photo) }}" class="" width="200px"> </a> </td>
+                         <td><a href="{{ asset('storage/app/'. $result->photo_innovation) }}" data-lightbox="image-2"> <img src="{{ asset('storage/app/'. $result->photo_innovation) }}" class="" width="200px"> </a> </td>
+                         <td><a href="{{ url('/views') }}/{{ $result->innovation_id }}" target="_blank" class="btn btn-info"> <i class="fa-solid fa-print"></i> </a></td>
                     </tr>
                     @endforeach
              </table>
