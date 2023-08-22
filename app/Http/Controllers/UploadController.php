@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Models\Universities;
 use \Mpdf\Mpdf as PDF; 
-use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class UploadController extends Controller
 {
@@ -282,7 +282,19 @@ class UploadController extends Controller
     return view('search' , ['title' => 'Search','data' => $data ,'results' => $results]);
 
    }
-
+    
+   public function remove($id,$type)
+   {
+        if(!empty($type) && $type == 'invs') { 
+         $uni = Upload::findOrFail($id);
+         $uni->delete();
+         return redirect()->route('dashboard')->with('success', 'Deleted Successfully');
+        } else if(!empty($type) && $type == 'users'){
+           $dept = User::findOrFail($id);
+           $dept->delete();
+           return redirect()->route('dashboard')->with('success', 'Deleted Successfully');
+        }       
+   }
 
 
 }

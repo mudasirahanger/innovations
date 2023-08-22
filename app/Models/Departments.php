@@ -9,7 +9,8 @@ class Departments extends Model
 
     protected $table = 'departments'; // If table name is different, specify it here.
     protected $primaryKey = 'dept_id'; // If primary key is different, specify it here.
-    public $timestamps = true; // Set to false if you don't want timestamps (created_at and updated_at).
+    protected $fillable = ['name','status'];
+    public $timestamps = false; // Set to false if you don't want timestamps (created_at and updated_at).
 
 
     

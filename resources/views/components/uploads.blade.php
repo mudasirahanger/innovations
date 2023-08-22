@@ -22,7 +22,7 @@
       <td>{{$upload->heading_innovator}}</td>
       <td><span class="badge text-bg-warning">{{$upload->status}}</span></td>    
       <td>{{$upload->created_at}}</td>
-      <td><a href="{{ url('/view') }}/{{$upload->innovation_id}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a> <a href="{{ url('/print') }}/{{$upload->innovation_id}}" target="_blank" class="btn btn-info"> <i class="fa-solid fa-print"></i> </a> <button class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i> </button>  </td>
+      <td><a href="{{ url('/view') }}/{{$upload->innovation_id}}" class="btn btn-primary"> <i class="fa-solid fa-eye"></i> </a> <a href="{{ url('/print') }}/{{$upload->innovation_id}}" target="_blank" class="btn btn-info"> <i class="fa-solid fa-print"></i> </a> <a class="btn btn-danger" href="@if($upload->status !== 'Approved')  {{ url('/remove') }}/{{$upload->upload_id}}/invs @endif"> <i class="fa-solid fa-trash-can"></i> </a>  </td>
     </tr>
     @endforeach
   </tbody>

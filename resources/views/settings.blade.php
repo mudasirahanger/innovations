@@ -2,7 +2,9 @@
 
 <div class="container">
     <div class="row">
-
+    @if(session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
 
     <div class="d-flex justify-content-center align-items-center bg-light">
 	<div class="card p-3 shadow mb-5" style="width: 800px;">
@@ -16,11 +18,17 @@
 		</nav>
 		<div class="tab-content p-3 border bg-light" id="nav-tabContent">
 			<div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-				
-			<form class="row g-3">
+			@if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{ $error }}</div>
+                @endforeach
+                @endif	
+			<form class="row g-3" action="{{ url('/addsettings') }}" method="POST">
+			@csrf
 			<div class="col-auto">
 				<label for="" class="visually-hidden">Name</label>
-				<input type="text" class="form-control" id="" placeholder="University Name">
+				<input type="text" class="form-control" id="" name="name" placeholder="University Name">
+				<input type="hidden" class="form-control" id="type" name="type" value="uni">
 			</div>
 			<div class="col-auto">
 				<button type="submit" class="btn btn-primary mb-3"> <i class="fa-solid fa-plus"></i> </button>
@@ -40,7 +48,7 @@
 					<tr>
 						<td>{{$university->uni_id}}</td>
 						<td>{{$university->name}}</td>
-						<td><button class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i> </button></td>
+						<td><a class="btn btn-danger" href="{{ url('/delete') }}/{{$university->uni_id}}/uni"> <i class="fa-solid fa-trash-can"></i> </a></td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -50,11 +58,17 @@
 
 			</div>
 			<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-			<form class="row g-3">
+			@if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">{{ $error }}</div>
+                @endforeach
+                @endif
+			<form class="row g-3" action="{{ url('/addsettings') }}" method="POST">
+			@csrf
 			<div class="col-auto">
 				<label for="" class="visually-hidden">Name</label>
-				<input type="text" class="form-control" id="" placeholder="Department Name">
+				<input type="text" class="form-control" id="" name="name" placeholder="Department Name">
+				<input type="hidden" class="form-control" id="type" name="type" value="dept">
 			</div>
 			<div class="col-auto">
 				<button type="submit" class="btn btn-primary mb-3"> <i class="fa-solid fa-plus"></i> </button>
@@ -74,7 +88,7 @@
 					<tr>
 						<td>{{$department->dept_id}}</td>
 						<td>{{$department->name}}</td>
-						<td><button class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i> </button></td>
+						<td><a class="btn btn-danger" href="{{ url('/delete') }}/{{$department->dept_id}}/dept"> <i class="fa-solid fa-trash-can"></i> </a></td>
 					</tr>
 					@endforeach
 				</tbody>

@@ -62,6 +62,9 @@ Route::middleware('auth')->group(function () {
     Route::get('view/{id}',[UploadController::class, 'view'])->name('view');
     Route::get('print/{id}',[UploadController::class, 'print'])->name('print');
     Route::post('approveInn',[UploadController::class, 'approveInn'])->name('approveInn');
-   
+    Route::get('remove/{id}/{type}',[UploadController::class, 'remove'])->name('remove');
+    
     Route::get('settings',[SettingsController::class, 'index'])->name('settings');
+    Route::post('addsettings',[SettingsController::class, 'store'])->name('addsettings');
+    Route::get('delete/{id}/{type}',[SettingsController::class, 'destroy'])->name('delete');
 });

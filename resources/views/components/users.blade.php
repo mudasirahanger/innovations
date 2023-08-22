@@ -21,7 +21,7 @@
       <td>{{$user->lname}}</td>
       <td>{{$user->mobile}}</td>
       <td>{{$user->email}}</td>
-      <td><a href="" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a> <button class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i> </button>   </td>
+      <td><a href="" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a> <a class="btn btn-danger" href="{{ url('/remove') }}/{{$user->id}}/users"> <i class="fa-solid fa-trash-can"></i> </a>   </td>
     </tr>
     @endforeach
   </tbody>

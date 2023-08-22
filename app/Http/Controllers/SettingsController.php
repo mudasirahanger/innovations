@@ -26,8 +26,25 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
         // Validate and store the new blog post
-        // BlogPost::create($request->all());
-        // return redirect()->route('blog-posts.index');
+        $request->validate([
+            'name' =>  ['required', 'string', 'max:255'],
+            'type' => ['required', 'string', 'max:255'],
+        ]);
+        if($request->type == 'uni') {
+                Universities::create([
+                    'name' => $request->name,
+                    'status' => '1'
+                ]);
+                return redirect()->route('settings')->with('success', 'Added Successfully');
+        } 
+        if($request->type == 'dept') {
+            Departments::create([
+                'name' => $request->name,
+                'status' => '1'
+            ]);
+             return redirect()->route('settings')->with('success', 'Added Successfully');
+        }
+
     }
 
     public function edit($id)
@@ -43,10 +60,19 @@ class SettingsController extends Controller
         // return redirect()->route('blog-posts.index');
     }
 
-    public function destroy($id)
+    public function destroy($id,$type)
     {
-        // $post = BlogPost::findOrFail($id);
-        // $post->delete();
-        // return redirect()->route('blog-posts.index');
+         if(!empty($type) && $type == 'uni') { 
+          $uni = Universities::findOrFail($id);
+          $uni->delete();
+          return redirect()->route('settings')->with('success', 'Deleted Successfully');
+         } else if(!empty($type) && $type == 'dept'){
+            $dept = Departments::findOrFail($id);
+            $dept->delete();
+            return redirect()->route('settings')->with('success', 'Deleted Successfully');
+         }
+
+         
+         
     }
 }

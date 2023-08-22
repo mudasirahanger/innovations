@@ -10,7 +10,8 @@ class Universities extends Model
 
     protected $table = 'universities'; // If table name is different, specify it here.
     protected $primaryKey = 'uni_id'; // If primary key is different, specify it here.
-    public $timestamps = true; // Set to false if you don't want timestamps (created_at and updated_at).
+    protected $fillable = ['name','status'];
+    public $timestamps = false; // Set to false if you don't want timestamps (created_at and updated_at).
 
 
     public static function getUnivName($uni_id)
