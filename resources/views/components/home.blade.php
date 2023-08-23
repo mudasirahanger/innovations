@@ -11,82 +11,58 @@
                                       ->orderBy('upload_id','ASC')->take(1)->get();
   @endphp
 <section class="container mt-3 p-5 section2">
-      <div class="row">
-        <div class="col-3">
+      <div class="row mt-5">
+        <div class="col-4 ">
           <h1 class="pageh2">Latest Innovation
           </h1>
-          @foreach($l_innovations as $innovations)
+          @foreach($l_innovations as $innovations)         
+          <img class="zoom"  src="https://static.vecteezy.com/system/resources/previews/001/268/345/original/businessman-holding-lightbulb-free-photo.jpg" width="400px" height="400px" style="border-radius: 10px 10px 10px 10px;">
           <p class="mt-5">{{  Str::limit($innovations['heading_innovator'] ,50)}}
           </p>
-          <img src="https://static.vecteezy.com/system/resources/previews/001/268/345/original/businessman-holding-lightbulb-free-photo.jpg" width="250px" height="250px" style="border-radius: 10px 10px 10px 10px;">
           <h5 class="mt-3 mb-5"> {{ $innovations['name_innovator'] }}</h5>
           <a href="{{ url('/views') }}/{{$innovations->innovation_id}}" target="_parent">Learn More</a>
           @endforeach
         </div>
-        <div class="col-3">
+        <div class="col-4">
         <h1 class="pageh2">Latest Startups
           </h1>
           @foreach($l_startups as $innovations)
+          <img class="zoom" src="https://community.nasscom.in/sites/default/files/styles/960_x_600/public/media/images/why%20startups%20fail.png?itok=3Gngp-0D" width="400px" height="400px" style="border-radius: 10px 10px 10px 10px;">
           <p class="mt-5">{{  Str::limit($innovations['heading_innovator'] ,50)}}
           </p>
-          <img src="https://community.nasscom.in/sites/default/files/styles/960_x_600/public/media/images/why%20startups%20fail.png?itok=3Gngp-0D" width="250px" height="250px" style="border-radius: 10px 10px 10px 10px;">
           <h5 class="mt-3 mb-5"> {{ $innovations['name_innovator'] }}</h5>
           <a href="{{ url('/views') }}/{{$innovations->innovation_id}}" target="_parent">Learn More</a>
           @endforeach
         </div>
-        <div class="col-3">
+        <div class="col-4">
         <h1 class="pageh2">Latest Patent
           </h1>
           @foreach($l_patents as $innovations)
+          <img class="zoom" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe0eAf6b9XphlVRPFQVMqkC4mnOPIPqS5MqQ&usqp=CAU" width="400px" height="400px" style="border-radius: 10px 10px 10px 10px;">
           <p class="mt-5">{{  Str::limit($innovations['heading_innovator'] ,50)}}
           </p>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe0eAf6b9XphlVRPFQVMqkC4mnOPIPqS5MqQ&usqp=CAU" width="250px" height="250px" style="border-radius: 10px 10px 10px 10px;">
           <h5 class="mt-3 mb-5"> {{ $innovations['name_innovator'] }}</h5>
           <a href="{{ url('/views') }}/{{$innovations->innovation_id}}" target="_parent">Learn More</a>
           @endforeach
         </div>
+       </div>
 
-
-        <div class="col-3">
-          <h1 class="pageh2 text-center">Applause </h1>
-          <span class="text-dark" style="
-                      width: 74%;
-                      margin: 0 auto;
-                      display: flex;
-                      align-items: center;
-                      --divider-border-style: solid;
-        --divider-color: #000;
-        --divider-border-width: 1px;
-                      border: 1px solid #333;
-                      border-left: none;
-                      border-right: none;
-                      border-top: none;
-                      ">
-            <span style="
-                      border-color: #DDD;
-                      color: #333;
-                      margin: -11px 100px;
-                      flex-shrink: 0;
-                      ">
-              <i aria-hidden="true" class="fa fa-star"></i>
-            </span>
-          </span>
+       <div class="row mt-5">
+       <div class="col-12 mt-5">
+          <h1 class="pageh2 text-center"> <i aria-hidden="true" class="fa fa-star"></i> Applause  <i aria-hidden="true" class="fa fa-star"></i></h1>
+          
           <div class="mt-5 p-1">
             <h2 class="p-4"> <i class="fa-solid fa-award"></i> JKEDI (94)</h2>
             <ul class="list-group list-group-flush">
                @foreach($universities as $uni)
-              <li class="list-group-item"><i aria-hidden="true" class="far fa-star"></i>{{ $uni->name }} (35)</li>
+              <li class="list-group-item"> <i aria-hidden="true" class="far fa-star"></i> {{ $uni->name }} (35)</li>
               @endforeach
             </ul>
           </div>
 
 
         </div>
-
-
-
-
-      </div>
+       </div>
     </section>
 
 
