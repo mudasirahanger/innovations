@@ -1,13 +1,13 @@
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://www.jksandt.nic.in/assets/images/banner8.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.jkinnovation.in/public/images/banner8.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="http://www.jksandt.nic.in/assets/images/banner7.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.jkinnovation.in/public/images/banner7.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="http://www.jksandt.nic.in/assets/images/banner6.jpg" class="d-block w-100" alt="...">
+      <img src="https://www.jkinnovation.in/public/images/banner6.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
