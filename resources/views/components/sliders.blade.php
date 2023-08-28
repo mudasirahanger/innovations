@@ -1,21 +1,38 @@
-<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://www.jkinnovation.in/public/images/banner8.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://www.jkinnovation.in/public/images/banner7.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="https://www.jkinnovation.in/public/images/banner6.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+<!-- banner-section -->
+<section class="banner-section">
+        <div class="banner-carousel owl-theme owl-carousel owl-dots-none owl-nav-none">
+            <div class="slide-item">
+                <div class="image-layer" style="background-image:url('{{ URL::asset('public/images/banner6.jpg') }}')"></div>
+                <div class="auto-container">
+                    <div class="content-box">
+                        <h5>Welcome </h5>
+                        <h1>Serving Science & Technology</h1>
+                        
+                    </div>  
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" style="background-image:url({{ URL::asset('public/images/banner7.jpg') }})"></div>
+                <div class="auto-container">
+                    <div class="content-box">
+                        <h5>Welcome</h5>
+                        <h1>Serving Science & Technology</h1>
+                        
+                    </div>  
+                </div>
+            </div>
+            <div class="slide-item">
+                <div class="image-layer" style="background-image:url({{ URL::asset('public/images/banner8.jpg') }})"></div>
+                <div class="auto-container">
+                    <div class="content-box">
+                        <h5>Welcome </h5>
+                        <h1>Serving Science & Technology</h1>
+                        <!-- <div class="btn-box">
+                            <a href="service.html" class="theme-btn style-two">Our Service</a>
+                        </div> -->
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner-section end -->

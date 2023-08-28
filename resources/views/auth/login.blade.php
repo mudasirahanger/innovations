@@ -1,10 +1,14 @@
 @include('components.header')
-<div class="container">
-    <div class="row">
-        <div class="d-flex justify-content-center align-items-center mb-5" style="min-height: 60vh;">
+<section class="contact-section">
+<div class="auto-container">
+    <div class="row clearfix">
+        <div class="col-md-8 offset-md-3" style="min-height: 60vh;">
+        <div class="form-inner">
+        <div class="sec-title left">
+                <h2>Login</h2>
+             </div>
             <form class="border p-4 rounded shadow form-submit" method="post" id="login" action="{{ route('login') }}" style="width: 600px;">
                 @csrf
-                <h3 class="mb-3 text-center pageh1">Login</h3>
                 @if ($errors->any())
                 @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
@@ -27,7 +31,7 @@
                     </div>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-top"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+                    <button type="submit" class="theme-btn style-one"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
                 </div>
                 <div class="mb-3 mt-3">
                     <p class="d-inline">forgot password click <a href="{{ url('forgot-password') }}" class=""><span>here </a>
@@ -39,7 +43,7 @@
 </div>
 
 
-
+</section>
 
 
 
