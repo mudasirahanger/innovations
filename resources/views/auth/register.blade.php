@@ -4,7 +4,7 @@
     <div class="row clearfix">
         <div class="col-md-8 offset-md-3" style="min-height: 60vh;">
         <div class="sec-title left">
-                <h2>Regsiter</h2>
+                <h2>Register</h2>
              </div>
             <form class="border p-4 rounded shadow form-submit" method="post" id="register" action="{{ route('register') }}" style="width: 600px;">
                 @csrf

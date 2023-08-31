@@ -28,7 +28,7 @@
             <div class="auto-container">
                 <div class="widget-section">
                     <div class="row clearfix">
-                        <div class="col-lg-6 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-8 col-md-8 col-sm-12 footer-column">
                             <div class="footer-widget logo-widget">
                                 <figure class="footer-logo"><a href="{{ url('/') }}"><img src="{{ URL::asset('public/') }}/images/logo.png" alt="" style="width: 360px;height: 72px;"></a></figure>
                                 <div class="text">
@@ -43,15 +43,20 @@
                         </div>
 
                        
-                        <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
+                        <div class="col-lg-4 col-md-4 col-sm-12 footer-column">
                             <div class="footer-widget links-widget">
                                 <div class="widget-title">
                                     <h3>Important Links</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <ul class="clearfix">
-                                        <li><a href="">Scientific</a></li>
-                                        <li><a href="">Chemistry</a></li>                                       
+                                    <ul class="clearfix">                                       
+                                        <li><a href=""> JK Science Technology & Innovation Council </a> </li>  
+                                        <li><a href=""> J & K Energy Development Agency </a></li>  
+                                        <li><a href=""> General Administrative Department </a></li>  
+                                        <li><a href=""> Ministry of New and Renewable Energy </a></li>  
+                                        <li><a href=""> Dept Science Technology GOI </a></li>  
+                                        <li><a href=""> Dept of Biotechnology GOI </a></li>  
+                                        <li><a href="">Department of Earth Sciences </a></li>                     
                                     </ul>
                                 </div>
                             </div>

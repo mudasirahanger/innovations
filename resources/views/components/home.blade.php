@@ -30,6 +30,7 @@
                         <div class="inner-box">
                             <figure class="image-box"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}"><img src="{{ URL::asset('public/assets/images/service/service-1.jpg') }}" alt=""></a></figure>
                             <div class="lower-content">
+                                <small>Innovation</small>
                                 <h3><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">{{ $innovations['name_innovator'] }}</a></h3>
                                 <p>{{  Str::limit($innovations['heading_innovator'] ,50)}}</p>
                                 <div class="link"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">Read More<i class="fas fa-angle-double-right"></i></a></div>
@@ -44,6 +45,7 @@
                         <div class="inner-box">
                             <figure class="image-box"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}"><img src="{{ URL::asset('public/assets/images/service/service-2.jpg') }}" alt=""></a></figure>
                             <div class="lower-content">
+                                <small>Startup</small>
                                 <h3><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">{{ $innovations['name_innovator'] }}</a></h3>
                                 <p>{{  Str::limit($innovations['heading_innovator'] ,50)}}</p>
                                 <div class="link"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">Read More<i class="fas fa-angle-double-right"></i></a></div>
@@ -58,6 +60,7 @@
                         <div class="inner-box">
                             <figure class="image-box"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}"><img src="{{ URL::asset('public/assets/images/service/service-3.jpg') }}" alt=""></a></figure>
                             <div class="lower-content">
+                                <small>Patent</small>
                                 <h3><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">{{ $innovations['name_innovator'] }}</a></h3>
                                 <p>{{  Str::limit($innovations['heading_innovator'] ,50)}}</p>
                                 <div class="link"><a href="{{ url('/views') }}/{{$innovations->innovation_id}}">Read More<i class="fas fa-angle-double-right"></i></a></div>
@@ -72,37 +75,47 @@
     </section>
 
 
-    <!-- technology-section -->
-    <section class="technology-section pt-1">
-        <div class="pattern-layer" style="background-image: url('{{ URL::asset("public/assets/images/shape/shape-5.png")}}');"></div>
+    <!-- about-section -->
+    <section class="about-section mb-3" style="padding:0px;padding-bottom: 200px;">
         <div class="auto-container">
-            <div class="row clearfix align-items-center">
-                <div class="col-lg-6 col-md-12 col-sm-12 video-column">
-                    <div id="video_block_01">
-                        <div class="video-inner" style="background-image: url('{{URL::asset("public/assets/images/background/video-1.jpg")}}');">
-                            <a href="" class="lightbox-image" data-caption=""><i class="fas fa-play"></i></a>
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                    <div id="image_block_01">
+                        <div class="image-box">
+                            <div class="pattern-layer" style="background-image: url({{ URL::asset("public/assets/images/shape/shape-1.png")}});"></div>
+                            <figure class="image"><img src="{{ URL::asset('public/') }}/assets/images/resource/about-1.jpg" alt=""></figure>
+                          
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                    <div id="content_block_02">
+                    <div id="content_block_01">
                         <div class="content-box">
                             <div class="sec-title left">
-                                <p><i aria-hidden="true" class="far fa-star"></i> Applause <i aria-hidden="true" class="far fa-star"></i></p>
-                                <h2> <i class="fa fa-award"></i> JKEDI (94)</h2>                              
-                            </div>                           
-                            <ul class="list-item clearfix">
-                            @foreach($universities as $uni)
-                                <li><i class="fa fa-user-graduate"></i><h5>{{ $uni->name }} (35)</h5></li>                               
+                                <p>Applause</p>
+                                <h2> JKEDI (25) </h2>
+                                
+                            </div>                          
+                            <div class="inner-box">
+                            @foreach($universities as $uni)   
+                                <div class="single-item">
+                                    <div class="count-box"><i class="fa fa-user-graduate"></i></div>
+                                    <div class="inner">
+                                        <h3><a href="">{{ $uni->name }} (35)</a></h3>
+                                    </div>
+                                </div>
                                 @endforeach
-                            </ul>
+                               
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- technology-section end -->
+    <!-- about-section end -->
+
+
 
 
       <!-- clients-section -->

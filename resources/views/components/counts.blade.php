@@ -22,7 +22,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 counter-column">
                     <div class="counter-block-one wow slideInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
                         <div class="count-outer count-box">
-                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="{{ $innovations }}">0</span>+
+                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="0">0</span>+
                         </div>
                         <p>Innovations</p>
                     </div>
@@ -30,7 +30,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 counter-column">
                     <div class="counter-block-one wow slideInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
                         <div class="count-outer count-box">
-                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="{{ $patents }}">0</span>+
+                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="0">0</span>+
                         </div>
                         <p>Patents</p>
                     </div>
@@ -38,7 +38,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 counter-column">
                     <div class="counter-block-one wow slideInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
                         <div class="count-outer count-box">
-                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="{{ $startups }}">0</span>+
+                            <span class="count-text" data-speed="1500" style="font-size: 86px;" data-stop="0">0</span>+
                         </div>
                         <p>Startups</p>
                     </div>
