@@ -1,10 +1,25 @@
 <!-- header -->
 @include('components.header')
-
+<section class="page-title" style="background-image: url({{ URL::asset('public/assets/images/background/page-title-2.jpg') }});">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12 content-column">
+                    <div class="content-box clearfix">
+                        <div class="title pull-left">
+                            <h1>About Us</h1>
+                        </div>
+                        <ul class="bread-crumb pull-right clearfix">
+                            <li><a href="index.html">Home</a></li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <!-- body -->
 <div class="container mt-5 mb-5">     
-   <h1>About Us</h1>
-  
+     
     <div class="row">
         <p>
         Mission / Vision

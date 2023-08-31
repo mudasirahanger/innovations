@@ -1,10 +1,13 @@
 @include('components.header')
-<div class="container">
-    <div class="row">
-        <div class="d-flex justify-content-center align-items-center mb-5" style="min-height: 60vh;">
+<section class="contact-section">
+<div class="auto-container">
+    <div class="row clearfix">
+        <div class="col-md-8 offset-md-3" style="min-height: 60vh;">
+        <div class="sec-title left">
+                <h2>Register</h2>
+             </div>
             <form class="border p-4 rounded shadow form-submit" method="post" id="register" action="{{ route('register') }}" style="width: 600px;">
                 @csrf
-                <h3 class="mb-3 text-center pageh1">Register Form</h3>
                 @if ($errors->any())
                 @foreach ($errors->all() as $error)
                 <div class="alert alert-danger">{{ $error }}</div>
@@ -43,7 +46,7 @@
                         Email must be valid.
                         </div>
                 </div>
-                <div class="mb-3 col-6">
+                <div class="mb-3">
                     <label for="mobile" class="form-label">Phone</label>
                     <input type="text" class="form-control" id="mobile" name="mobile" maxlength="10" required>
                     <div id="" class="form-text">
@@ -53,23 +56,23 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required>
-                    <div class="col-auto">
-                        <span id="" class="form-text">
-                        Must be 8-20 characters long.
-                        </span>
-                    </div>
+                  
+                    <span id="" class="form-text">
+                    Must be 8-20 characters long.
+                    </span>
+               
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-                    <div class="col-auto">
-                        <span id="" class="form-text">
-                        Must be 8-20 characters long.
-                        </span>
-                    </div>
+                  
+                    <span id="" class="form-text">
+                    Must be 8-20 characters long.
+                    </span>
+                 
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-top"> <i class="fa-solid fa-user-plus"></i> Register</button>
+                    <button type="submit" class="theme-btn style-one"> Register</button>
                 </div>
                 <div class="mb-3 mt-3">
                     <p class="d-inline">If You have already account click to <a href="{{ route('login') }}" class=""><span>Login </a>
@@ -79,6 +82,6 @@
         </div>
     </div>
 </div>
-
+</section>
 
 @include('components.footer')
